@@ -28,7 +28,7 @@ end
 
 # Default Vagrant vars.
 $devbind_img = "getcapsule/dpdk-devbind:19.11.6"
-$dpdkmod_img = "getcapsule/dpdk-mod:19.11.6-`uname -r`"
+$dpdkmod_img = "getcapsule/dpdk-mod:19.11.6-4.19.0-14-amd64"
 $sandbox_img = "getcapsule/sandbox:19.11.6-1.50"
 
 $dpdk_driver = "uio_pci_generic"
@@ -47,6 +47,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.disksize.size = "45GB"
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
+
+  config.vm.synced_folder "../gdp-routing-capsule", "/gdp", create: true, type: "virtualbox"
 
   # Specific IPs. These is needed because DPDK takes over the NIC.
   config.vm.network "private_network", ip: "10.100.1.10"
