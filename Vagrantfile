@@ -76,6 +76,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     docker.vm.provision "shell", path: "scripts/docker-vagrant.sh", :args => [$dpdk_driver, $vhome]
+
+    # Set up proper ARP routes
+    docker.vm.provision "shell", path: "scripts/arp-fix.sh", run: "always"
+
+    # Provision the right guest vm stuff due to virtualbox-vbguest bug
+    # You only need this on an Ubuntu host
+    # docker.vm.provision "shell", path: "scripts/guestadds-fix.sh"
+
     docker.vm.provision "docker" do |d|
       d.pull_images "#{$devbind_img}"
       d.pull_images "#{$dpdkmod_img}"
