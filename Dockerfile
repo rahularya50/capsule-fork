@@ -148,3 +148,6 @@ RUN apt-get update \
   && apt-get autoremove -y \
   && apt-get clean \
   && rm -rf .cargo/registry /var/lib/apt/lists/* /var/cache/apt/archives /tmp/*
+
+VOLUME ["/usr/local/cargo"]
+VOLUME ["/usr/home/"]
