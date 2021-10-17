@@ -19,4 +19,5 @@ docker run -it --rm \
     getcapsule/sandbox:19.11.6-1.50 /bin/bash
 ```
 
-3. `cd /gdp`, then run `cargo run`.
+3.
+`cd /gdp`, then `cargo run -- --file conf.toml`.
