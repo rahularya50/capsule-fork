@@ -32,7 +32,7 @@ $dpdkmod_img = "getcapsule/dpdk-mod:19.11.6-4.19.0-14-amd64"
 $sandbox_img = "getcapsule/sandbox:19.11.6-1.50"
 
 $dpdk_driver = "uio_pci_generic"
-$dpdk_devices = "0000:00:08.0 0000:00:09.0"
+$dpdk_devices = "0000:00:08.0 0000:00:09.0 0000:00:0a.0"
 $vhome = "/home/vagrant"
 
 # All Vagrant configuration is done here. The most common configuration
@@ -52,6 +52,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Specific IPs. These is needed because DPDK takes over the NIC.
   config.vm.network "private_network", ip: "10.100.1.10", :mac => "020000FFFF00"
   config.vm.network "private_network", ip: "10.100.1.11", :mac => "020000FFFF01"
+  config.vm.network "private_network", ip: "10.100.1.12", :mac => "020000FFFF02"
 
   # NIC on the same subnet as the two bound to DPDK.
   config.vm.network "private_network", ip: "10.100.1.254", :mac => "020000FFFFFF"
