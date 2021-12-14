@@ -32,7 +32,7 @@ $dpdkmod_img = "getcapsule/dpdk-mod:19.11.6-4.19.0-14-amd64"
 $sandbox_img = "getcapsule/sandbox:19.11.6-1.50"
 
 $dpdk_driver = "uio_pci_generic"
-$dpdk_devices = "0000:00:08.0 0000:00:09.0 0000:00:0a.0 0000:00:0b.0"
+$dpdk_devices = "0000:00:08.0 0000:00:09.0 0000:00:0a.0 0000:00:10.0"
 $vhome = "/home/vagrant"
 
 # All Vagrant configuration is done here. The most common configuration
